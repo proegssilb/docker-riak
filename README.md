@@ -1,4 +1,4 @@
-# docker-riak [![Build Status](https://secure.travis-ci.org/hectcastro/docker-riak.png?branch=develop)](http://travis-ci.org/hectcastro/docker-riak)
+# docker-riak [![Build Status](https://secure.travis-ci.org/proegssilb/docker-riak.png?branch=develop)](http://travis-ci.org/proegssilb/docker-riak)
 
 This is a [Docker](http://docker.io) project to bring up a local
 [Riak](https://github.com/basho/riak) cluster.
@@ -130,34 +130,8 @@ about all of the other Riak instances.
 
 The [phusion/baseimage-docker](https://github.com/phusion/baseimage-docker)
 image has the ability to enable an __insecure__ key for conveniently logging
-into a container via SSH. It is enabled in the `Dockerfile` by default here:
-
-```docker
-RUN /usr/sbin/enable_insecure_key
-```
-
-In order to login to the container via SSH using the __insecure__ key, follow
-the steps below.
-
-Use `docker inspect` to determine the container IP address:
-
-```bash
-$ docker inspect $CONTAINER_ID | grep IPAddress
-        "IPAddress": "172.17.0.2",
-```
-
-Download the insecure key, alter its permissions, and use it to SSH into the
-container via its IP address:
-
-```bash
-$ curl -o insecure_key -fSL https://github.com/phusion/baseimage-docker/raw/master/image/insecure_key
-$ chmod 600 insecure_key
-$ ssh -i insecure_key root@172.17.0.2
-```
-
-**Note:** If you're using
-[boot2docker](https://github.com/boot2docker/boot2docker), ensure that you're
-issuing the SSH command from within the virtual machine running `boot2docker`.
+into a container via SSH. For more information, please refer to 
+[phusion/baseimage-docker](https://github.com/phusion/baseimage-docker).
 
 ## Destroying
 

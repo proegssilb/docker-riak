@@ -42,10 +42,6 @@ VOLUME /var/log/riak
 # Open ports for HTTP and Protocol Buffers
 EXPOSE 8098 8087
 
-# Enable insecure SSH key
-# See: https://github.com/phusion/baseimage-docker#using_the_insecure_key_for_one_container_only
-RUN /usr/sbin/enable_insecure_key
-
 # Cleanup
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
